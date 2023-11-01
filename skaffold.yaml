@@ -1,0 +1,140 @@
+apiVersion: skaffold/v4beta6
+kind: Config
+deploy:
+  helm:
+    releases:
+      - name: skaffold-sync-service-1
+        chartPath: ./helm/
+        namespace: "skaffold-sync-namespace"
+        upgradeOnChange: true
+        setValueTemplates:
+          image.repository: "{{.IMAGE_REPO_skaffold_sync_service_1}}"
+          image.tag: "{{.IMAGE_TAG_skaffold_sync_service_1}}@{{.IMAGE_DIGEST_skaffold_sync_service_1}}"
+      - name: skaffold-sync-service-2
+        chartPath: ./helm/
+        namespace: "skaffold-sync-namespace"
+        upgradeOnChange: true
+        setValueTemplates:
+          image.repository: "{{.IMAGE_REPO_skaffold_sync_service_2}}"
+          image.tag: "{{.IMAGE_TAG_skaffold_sync_service_2}}@{{.IMAGE_DIGEST_skaffold_sync_service_2}}"
+      - name: skaffold-sync-service-3
+        chartPath: ./helm/
+        namespace: "skaffold-sync-namespace"
+        upgradeOnChange: true
+        setValueTemplates:
+          image.repository: "{{.IMAGE_REPO_skaffold_sync_service_3}}"
+          image.tag: "{{.IMAGE_TAG_skaffold_sync_service_3}}@{{.IMAGE_DIGEST_skaffold_sync_service_3}}"
+      - name: skaffold-sync-service-4
+        chartPath: ./helm/
+        namespace: "skaffold-sync-namespace"
+        upgradeOnChange: true
+        setValueTemplates:
+          image.repository: "{{.IMAGE_REPO_skaffold_sync_service_4}}"
+          image.tag: "{{.IMAGE_TAG_skaffold_sync_service_4}}@{{.IMAGE_DIGEST_skaffold_sync_service_4}}"
+      - name: skaffold-sync-service-5
+        chartPath: ./helm/
+        namespace: "skaffold-sync-namespace"
+        upgradeOnChange: true
+        setValueTemplates:
+          image.repository: "{{.IMAGE_REPO_skaffold_sync_service_5}}"
+          image.tag: "{{.IMAGE_TAG_skaffold_sync_service_5}}@{{.IMAGE_DIGEST_skaffold_sync_service_5}}"
+      - name: skaffold-sync-service-6
+        chartPath: ./helm/
+        namespace: "skaffold-sync-namespace"
+        upgradeOnChange: true
+        setValueTemplates:
+          image.repository: "{{.IMAGE_REPO_skaffold_sync_service_6}}"
+          image.tag: "{{.IMAGE_TAG_skaffold_sync_service_6}}@{{.IMAGE_DIGEST_skaffold_sync_service_6}}"
+      - name: skaffold-sync-service-7
+        chartPath: ./helm/
+        namespace: "skaffold-sync-namespace"
+        upgradeOnChange: true
+        setValueTemplates:
+          image.repository: "{{.IMAGE_REPO_skaffold_sync_service_7}}"
+          image.tag: "{{.IMAGE_TAG_skaffold_sync_service_7}}@{{.IMAGE_DIGEST_skaffold_sync_service_7}}"
+      - name: skaffold-sync-service-8
+        chartPath: ./helm/
+        namespace: "skaffold-sync-namespace"
+        upgradeOnChange: true
+        setValueTemplates:
+          image.repository: "{{.IMAGE_REPO_skaffold_sync_service_8}}"
+          image.tag: "{{.IMAGE_TAG_skaffold_sync_service_8}}@{{.IMAGE_DIGEST_skaffold_sync_service_8}}"
+      - name: skaffold-sync-service-9
+        chartPath: ./helm/
+        namespace: "skaffold-sync-namespace"
+        upgradeOnChange: true
+        setValueTemplates:
+          image.repository: "{{.IMAGE_REPO_skaffold_sync_service_9}}"
+          image.tag: "{{.IMAGE_TAG_skaffold_sync_service_9}}@{{.IMAGE_DIGEST_skaffold_sync_service_9}}"
+    flags:
+      upgrade:
+        - --install
+
+build:
+  artifacts:
+    - image: skaffold-sync-service-1
+      context: ./service-1
+      sync:
+        infer:
+          - "**/*"
+      docker:
+        dockerfile: Dockerfile
+    - image: skaffold-sync-service-2
+      context: ./service-2
+      sync:
+        infer:
+          - "**/*"
+      docker:
+        dockerfile: Dockerfile
+    - image: skaffold-sync-service-3
+      context: ./service-3
+      sync:
+        infer:
+          - "**/*"
+      docker:
+        dockerfile: Dockerfile
+    - image: skaffold-sync-service-4
+      context: ./service-4
+      sync:
+        infer:
+          - "**/*"
+      docker:
+        dockerfile: Dockerfile
+    - image: skaffold-sync-service-5
+      context: ./service-5
+      sync:
+        infer:
+          - "**/*"
+      docker:
+        dockerfile: Dockerfile
+    - image: skaffold-sync-service-6
+      context: ./service-6
+      sync:
+        infer:
+          - "**/*"
+      docker:
+        dockerfile: Dockerfile
+    - image: skaffold-sync-service-7
+      context: ./service-7
+      sync:
+        infer:
+          - "**/*"
+      docker:
+        dockerfile: Dockerfile
+    - image: skaffold-sync-service-8
+      context: ./service-8
+      sync:
+        infer:
+          - "**/*"
+      docker:
+        dockerfile: Dockerfile
+    - image: skaffold-sync-service-9
+      context: ./service-9
+      sync:
+        infer:
+          - "**/*"
+      docker:
+        dockerfile: Dockerfile
+
+  local:
+    concurrency: 0
